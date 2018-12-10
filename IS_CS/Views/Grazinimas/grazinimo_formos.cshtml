@@ -1,0 +1,73 @@
+﻿@model IEnumerable<IS_CS.Models.Uzsakyma>
+@{
+    ViewBag.Title = "Grąžinimo formos";
+}
+
+<table style="width:100%" id="formos">
+    <tr>
+        <th>
+            Nr.
+        </th>
+        <th>
+            Formos pateikimo data
+        </th>
+        <th>
+            Kliento vardas ir pavardė
+        </th>
+        <th>
+            Grąžinamo užsakymo nr.
+        </th>
+        <th>
+            Grąžinimo priežastis
+        </th>
+        <th>
+            Grąžinimo aprašymas
+        </th>
+        <th>
+            Grąžinimo būsena ir pakeitimo data
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+    </tr>
+    <br>
+    <br>
+
+    @foreach (var item in Model)
+    {
+        if (item.fk_Grazinimo_nr != null)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grazinima.nr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grazinima.data.Year)-@Html.DisplayFor(modelItem => item.Grazinima.data.Month)-@Html.DisplayFor(modelItem => item.Grazinima.data.Day)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Klienta.vardas) @Html.DisplayFor(modelItem => item.Klienta.pavarde)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fk_Grazinimo_nr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grazinima.Grazinimo_priezastis.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grazinima.grazinimo_aprasymas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grazinima.Grazinimo_busena.Grazinimo_busenos.name), @Html.DisplayFor(modelItem => item.Grazinima.Grazinimo_busena.busenos_pakeitimo_data.Year)-@Html.DisplayFor(modelItem => item.Grazinima.Grazinimo_busena.busenos_pakeitimo_data.Month)-@Html.DisplayFor(modelItem => item.Grazinima.Grazinimo_busena.busenos_pakeitimo_data.Day)
+                </td>
+                <td>@Html.ActionLink("Išrašas", "israsas", "Grazinimas", new { israsas = @Html.DisplayFor(modelItem => item.uzsakymo_id) }, null)</td>
+                <td>@Html.ActionLink("Patvirtinimas/Būsenos keitimas", "grazinimo_patvirtinimas", "Grazinimas", new { grazinimas = @Html.DisplayFor(modelItem => item.Grazinima.nr) }, null)</td>
+
+
+
+
+            </tr>
+        }
+    }
+
+</table>

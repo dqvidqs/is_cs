@@ -1,0 +1,41 @@
+﻿@model IEnumerable<IS_CS.Models.Uzsakyma>
+
+@{
+    ViewBag.Title = "Išrašas";
+}
+<div>
+    <form action="#" method="get" id="forma">
+        <br>
+        <fieldset>
+            <legend>Grąžinimo formos išrašas:</legend><br>
+            <tr>
+                @foreach (var item in Model)
+                {
+                    if (item.uzsakymo_id.ToString() == Request.QueryString["israsas"])
+                    {
+                        <th>Užsakymo nr.: </th>
+                        <td>@Html.DisplayFor(modelItem => item.uzsakymo_id)</td>
+                        <br>
+                        <th>Data: </th>
+                        <td></td>
+                        <br>
+                        <th>Kliento vardas ir pavardė: </th>
+                        <td> @Html.DisplayFor(modelItem => item.Klienta.vardas) @Html.DisplayFor(modelItem => item.Klienta.pavarde)</td>
+                        <br>
+                        <th>Darbuotojo vardas ir pavardė: </th>
+                        <td></td>
+                        <br>
+                        <th>Grąžinimo priežastis: </th>
+                        <td>@Html.DisplayFor(modelItem => item.Grazinima.Grazinimo_priezastis.name)</td>
+                        <br>
+                        <th>Grąžinimo būsena: </th>
+                        <td>@Html.DisplayFor(modelItem => item.Grazinima.Grazinimo_busena.Grazinimo_busenos.name)</td>
+                        <br>
+                    }
+                }
+            </tr>
+        </fieldset>
+    </form><br>
+    <button type="button">Pildyti/redaguoti išrašą</button>
+    <button type="button">Siųsti išrašą klientui</button>
+</div>
