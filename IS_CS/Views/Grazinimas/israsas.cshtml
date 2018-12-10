@@ -36,6 +36,6 @@
             </tr>
         </fieldset>
     </form><br>
-    <button type="button">Pildyti/redaguoti išrašą</button>
+    @Html.ActionLink("Pildyti/redaguoti išrašą", "israsas_edit", new { israsas = @Html.DisplayFor(modelItem => Request.QueryString["israsas"]) })
     <button type="button">Siųsti išrašą klientui</button>
 </div>

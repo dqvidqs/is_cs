@@ -31,20 +31,41 @@ namespace IS_CS.Controllers
             return View(_entities.Patvirtinimas.ToList());
         }
 
-        public ActionResult Grazinimas_Create()
+        public ActionResult grazinimas_create()
         {
             Grazinima grazinima = new Grazinima();
             return View(grazinima); ;
         }
         [HttpPost]
-        public ActionResult Grazinimas_Create(Grazinima newGrazinimas)
+        public ActionResult grazinimas_create(Grazinima newGrazinimas)
         {
             if (ModelState.IsValid)
             {
                 _entities.Grazinimas.Add(newGrazinimas);
                 _entities.SaveChanges();
             }
-            return RedirectToAction("prekiu_grazinimas");
+            return RedirectToAction("grazinimo_formos");
+        }
+
+        public ActionResult israsas_edit(int israsas)
+        {
+            Israsa israsa = _entities.Israsas.Find(israsas);
+            if (israsa == null)
+            {
+                return HttpNotFound();
+            }
+            return View(israsa);
+        }
+        [HttpPost]
+        public ActionResult israsas_edit(Israsa israsa)
+        {
+            if (ModelState.IsValid)
+            {
+                _entities.Entry(israsa).State = System.Data.Entity.EntityState.Modified;
+                _entities.SaveChanges();
+                return RedirectToAction("grazinimo_formos");
+            }
+            return View(israsa);
         }
     }
 }
