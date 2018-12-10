@@ -1,0 +1,67 @@
+﻿@model IS_CS.Models.Preke
+
+@{
+    ViewBag.Title = "preke_Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>preke_Detail</h2>
+
+<div>
+    <h4>Preke</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bar_kodas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bar_kodas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.modelis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.modelis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pavadinimas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pavadinimas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pardavimo_kaina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pardavimo_kaina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kiekio_tipas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kiekio_tipas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fk_Darbuotojaspaskyros_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fk_Darbuotojaspaskyros_id)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "preke_Edit", new {  id = Model.bar_kodas }) |
+    @Html.ActionLink("Back to List", "preke_List")
+</p>

@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Kompiuterių prekyba</title>
+    @Styles.Render("~/Content/nav-bar.css")
+    @Styles.Render("~/Content/div-con.css")
+    @Styles.Render("~/Content/table_cart.css")
+    @Styles.Render("~/Content/table.css")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+<body>
+    <div class="container">
+        <div style="float:right; display:inline-block">
+            <div style="margin-top:40px;">
+                <a href="#" class="button">prisijungti</a>
+                <a href="#" class="button">registruotis</a>
+            </div>            
+        </div>
+        <div >
+            <i class="material-icons" style="font-size:60px; color:#8e8e8e">computer</i>
+        </div>
+        <div class="Nav_Header">
+            <div class="Nav_DropDown">
+                <button class="Drop_Bar">
+                    Kategorijos
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="DropDown_Content">
+                    @Html.ActionLink("A", "Index", "Home")
+                    @Html.ActionLink("B", "Index", "Home")
+                    @Html.ActionLink("C", "Index", "Home")
+                </div>
+            </div>
+            <div class="Nav_DropDown">
+                <button class="Drop_Bar">
+                    Remontas
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="DropDown_Content">
+                    @Html.ActionLink("Registruoti įrenginį", "registruoti_irengini", "Home")
+                    @Html.ActionLink("Irenginio ataskaitos", "irenginio_ataskaita", "Home")
+                    @Html.ActionLink("Gedimų istorijos sąrašas", "gedimu_istorija", "Home")
+                </div>
+            </div>
+
+            <div class="Nav_DropDown">
+                <button class="Drop_Bar">
+                    Grąžinimas
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="DropDown_Content">
+                    @Html.ActionLink("Registracija grąžinimui", "prekiu_grazinimas", "Home")
+                    @Html.ActionLink("Grąžinimo formos", "grazinimo_formos", "Home")
+                </div>
+            </div>
+            @Html.ActionLink("Prekės", "preke_List", "Preke")
+            @Html.ActionLink("Sąskaitos", "saskaitu_sarasas", "Home")
+
+            <a href="@Url.Action("krepselio_perziura", "Home")" class="mdc-button" style="float:right; font-size:40px; padding:4px 16px">
+                <i class="material-icons" aria-hidden="true">local_grocery_store</i>
+            </a>
+        </div>
+        <hr />
+    </div>
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <div class="container">
+        <hr />
+        <footer>
+            <p style="text-align:center">&copy; @DateTime.Now.Year - Kompiuterių prekyba</p>
+        </footer>
+    </div>
+
+</body>
+</html>
