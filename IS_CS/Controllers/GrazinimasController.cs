@@ -13,7 +13,7 @@ namespace IS_CS.Controllers
 
         public ActionResult prekiu_grazinimas()
         {
-            return View(_entities.Grazinimo_priezastis.ToList());
+            return View(_entities.Uzsakymas.ToList());
         }
 
         public ActionResult grazinimo_formos()
@@ -29,6 +29,22 @@ namespace IS_CS.Controllers
         public ActionResult grazinimo_patvirtinimas()
         {
             return View(_entities.Patvirtinimas.ToList());
+        }
+
+        public ActionResult Grazinimas_Create()
+        {
+            Grazinima grazinima = new Grazinima();
+            return View(grazinima); ;
+        }
+        [HttpPost]
+        public ActionResult Grazinimas_Create(Grazinima newGrazinimas)
+        {
+            if (ModelState.IsValid)
+            {
+                _entities.Grazinimas.Add(newGrazinimas);
+                _entities.SaveChanges();
+            }
+            return RedirectToAction("prekiu_grazinimas");
         }
     }
 }

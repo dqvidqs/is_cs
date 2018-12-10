@@ -1,30 +1,44 @@
-﻿@model IEnumerable<IS_CS.Models.Grazinimo_priezastis>
+﻿@model IEnumerable<IS_CS.Models.Uzsakyma>
 
 @{
     ViewBag.Title = "Registracija grąžinimui";
 }
-<div>
-    <h2 id="pageTitle">Prekių registracija grąžinimui:</h2>
-    <form action="#" method="get" id="forma">
-        <fieldset>
-            <legend>Prekės grąžinimo forma:</legend>
-            Grąžinimo priežastis:<br>
-            @foreach (var item in Model)
-            {
-                <input type="radio" name="priezastis" value=@Html.DisplayFor(modelItem => item.name) checked> @Html.DisplayFor(modelItem => item.name)<br>;
 
-            }<br>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-            Grąžinamas užsakymas:<br>
-            <select>
-                <option name="uzsakymas" value="pirmas">123</option>
-                <option name="uzsakymas" value="antras">124</option>
-                <option name="uzsakymas" value="trecias">125</option>
-            </select><br><br>
+    <div>
+        <h2 id="pageTitle">Prekių registracija grąžinimui:</h2>
+        <form action="#" method="get" id="forma">
+            <fieldset>
+                <legend>Prekės grąžinimo forma:</legend>
+                Grąžinimo priežastis:<br>
+                <input type="radio" name="priezastis" value="bloga" checked> Boga kokybė<br>
+                <input type="radio" name="priezastis" value="neta"> Gauta ne ta prekė<br>
+                <input type="radio" name="priezastis" value="pazeista"> Pažeista prekė<br>
+                <input type="radio" name="priezastis" value="nemokamas"> Nemokamas 14d. grąžinimas<br><br>
+                <br>
+                Grąžinamo užsakymo nr:<br>
+                <select>
+                    @foreach (var item in Model)
+                    {
+                        if (item.fk_Grazinimo_nr == null)
+                        {
 
-            <label>Platesnis grąžinimo priežasties aprašymas:<br></label>
-            <textarea name="aprasymas" id="aprasymas" rows="6" cols="60" class="field-long field-textarea"></textarea>
-        </fieldset>
-    </form><br><br>
-    <button type="submit" form="forma" value="Submit">Pateikti</button>
-</div>
+
+                            <option name="uzsakymas" value=@Html.DisplayFor(modelItem => item.uzsakymo_id)>@Html.DisplayFor(modelItem => item.uzsakymo_id)</option>
+
+                        }
+                    }
+                </select><br><br>
+
+                <label>Platesnis grąžinimo priežasties aprašymas:<br></label>
+                <textarea name="aprasymas" id="aprasymas" rows="6" cols="60" class="field-long field-textarea"></textarea>
+            </fieldset>
+        </form><br><br>
+        <button type="submit" form="forma" value="Submit">Pateikti</button>
+    </div>
+}
+
