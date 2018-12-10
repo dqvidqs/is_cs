@@ -311,6 +311,7 @@
     <Content Include="Views\Preke\preke_Detail.cshtml" />
     <Content Include="Views\Preke\preke_Create.cshtml" />
     <Content Include="Views\Irenginys\irenginys_list.cshtml" />
+    <Content Include="Views\Irenginys\irenginys_Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
