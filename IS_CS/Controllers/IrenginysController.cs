@@ -38,5 +38,29 @@ namespace IS_CS.Controllers
             return View(irenginiai);         
         }
 
+        public ActionResult irenginys_Edit(int id) {
+         
+                Remontuojamas_irenginys irenginys = db.Remontuojamas_irenginys.Find(id);
+                if (irenginys == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(irenginys);
+           
+        }
+
+        [HttpPost]
+        public ActionResult irenginys_Edit(Remontuojamas_irenginys irenginys)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(irenginys).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("irenginys_list");
+            }
+            return View(irenginys);
+        }
+
+
     }
 }
