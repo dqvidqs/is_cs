@@ -29,7 +29,9 @@ namespace IS_CS.Models
         public int fk_Klientaspaskyros_id { get; set; }
         public int fk_Uzsakymasuzsakymo_id { get; set; }
         public int fk_Darbuotojaspaskyros_id { get; set; }
-    
+        public List<Prekiu_sarasas> prek_sar_list = new List<Prekiu_sarasas>();
+        public List<Preke> prek_list = new List<Preke>();
+
         public virtual Darbuotoja Darbuotoja { get; set; }
         public virtual Klienta Klienta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
