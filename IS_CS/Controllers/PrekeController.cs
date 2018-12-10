@@ -82,13 +82,8 @@ namespace IS_CS.Controllers
 
         private IEnumerable<SelectListItem> GetTipaiList(List<Kiekio_tipas> list)
         {
-            // Create an empty list to hold result of the operation
             var selectList = new List<SelectListItem>();
 
-            // For each string in the 'elements' variable, create a new SelectListItem object
-            // that has both its Value and Text properties set to a particular value.
-            // This will result in MVC rendering each item as:
-            //     <option value="State Name">State Name</option>
             foreach (var element in list)
             {
                 selectList.Add(new SelectListItem
@@ -100,6 +95,22 @@ namespace IS_CS.Controllers
 
             return selectList;
         }
-
+        public ActionResult preke_Delete(int id)
+        {
+            Preke preke = db.Prekes.Find(id);
+            if (preke == null)
+            {
+                return HttpNotFound();
+            }
+            return View(preke);
+        }
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult preke_Delete(int id, string confirmButton)
+        {
+            var preke = db.Prekes.Find(id);
+            db.Prekes.Remove(preke);
+            db.SaveChanges();
+            return RedirectToAction("preke_List");
+        }
     }
 }
