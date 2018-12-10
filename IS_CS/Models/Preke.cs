@@ -6,7 +6,8 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 namespace IS_CS.Models
 {
     using System;
@@ -28,8 +29,10 @@ namespace IS_CS.Models
         public string pavadinimas { get; set; }
         public double pardavimo_kaina { get; set; }
         public int kiekio_tipas { get; set; }
+        public IEnumerable<SelectListItem> tipai { get; set; }
+        public string tipas { get; set; }
         public int fk_Darbuotojaspaskyros_id { get; set; }
-    
+
         public virtual Darbuotoja Darbuotoja { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<itraukiama_i> itraukiama_i { get; set; }
