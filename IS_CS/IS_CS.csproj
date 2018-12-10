@@ -157,6 +157,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IrenginysController.cs" />
     <Compile Include="Controllers\PrekeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -309,6 +310,7 @@
     <Content Include="Views\Preke\preke_Edit.cshtml" />
     <Content Include="Views\Preke\preke_Detail.cshtml" />
     <Content Include="Views\Preke\preke_Create.cshtml" />
+    <Content Include="Views\Irenginys\irenginys_list.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
