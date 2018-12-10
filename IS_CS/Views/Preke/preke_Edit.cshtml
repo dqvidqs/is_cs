@@ -5,18 +5,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>preke_Edit</h2>
+<h2>Prekės informacijos keitimas</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Preke</h4>
+        <h4>Prekė</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.bar_kodas, htmlAttributes: new { @class = "control-label col-md-2" })
+            <a>Bar kodas</a>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.bar_kodas, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.bar_kodas, "", new { @class = "text-danger" })
@@ -24,7 +24,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.modelis, htmlAttributes: new { @class = "control-label col-md-2" })
+            <a>Modelis</a>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.modelis, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.modelis, "", new { @class = "text-danger" })
@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.pavadinimas, htmlAttributes: new { @class = "control-label col-md-2" })
+            <a>Pavadinimas</a>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.pavadinimas, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.pavadinimas, "", new { @class = "text-danger" })
@@ -40,7 +40,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.pardavimo_kaina, htmlAttributes: new { @class = "control-label col-md-2" })
+            <a>Pardavimo kaina, EUR</a>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.pardavimo_kaina, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.pardavimo_kaina, "", new { @class = "text-danger" })
@@ -48,7 +48,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.kiekio_tipas, htmlAttributes: new { @class = "control-label col-md-2" })
+            <a>Kiekio tipas</a>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.kiekio_tipas, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.kiekio_tipas, "", new { @class = "text-danger" })
@@ -56,7 +56,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.fk_Darbuotojaspaskyros_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <a>Atsakingas darbuotojas</a>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.fk_Darbuotojaspaskyros_id, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.fk_Darbuotojaspaskyros_id, "", new { @class = "text-danger" })
@@ -65,12 +65,12 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Edit" class="btn btn-default" />
+                <input type="submit" value="Išsaugoti" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "preke_List")
+    @Html.ActionLink("Grižti", "preke_List")
 </div>

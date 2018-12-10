@@ -4,60 +4,62 @@
     ViewBag.Title = "Prekių sąrašas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>List_preke</h2>
+@Styles.Render("~/Content/a-controls.css")
+<h2>Prekių sąrašas</h2>
 
 <p>
-    @Html.ActionLink("Create New", "preke_Create")
+    @Html.ActionLink("Sukurti naują", "preke_Create", null, new { @class = "controls" })
 </p>
-<table class="table">
+<table class="table" id="formos">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.bar_kodas)
+            <a>Bar kodas</a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.modelis)
+            <a>Modelis</a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.pavadinimas)
+            <a>Pavadinimas</a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.pardavimo_kaina)
+            <a>Pardavimo kaina, EUR</a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tipas)
+            <a>Kiekio tipas</a>
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.fk_Darbuotojaspaskyros_id)
+            <a>Atsakingas darbuotojas</a>
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.bar_kodas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.modelis)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pavadinimas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.pardavimo_kaina)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tipas)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.fk_Darbuotojaspaskyros_id)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "preke_Edit", new { id=item.bar_kodas }) |
-            @Html.ActionLink("Details", "preke_Detail", new { id=item.bar_kodas })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.bar_kodas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modelis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pavadinimas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pardavimo_kaina)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fk_Darbuotojaspaskyros_id)
+            </td>
+            <td>
+                @Html.ActionLink("Redeguoti", "preke_Edit", new { id = item.bar_kodas }) |
+                @Html.ActionLink("Peržiūra", "preke_Detail", new { id = item.bar_kodas }) |
+                @Html.ActionLink("Naikinti", "preke_Delete", new { id = item.bar_kodas })
+            </td>
+        </tr>
+    }
 
 </table>

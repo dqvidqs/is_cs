@@ -1,0 +1,115 @@
+﻿@model IS_CS.Models.Saskaita
+
+@{
+    ViewBag.Title = "Saskaita_Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sąskaitos informacijos peržiūra</h2>
+
+<div>
+    <h4>Sąskaita</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <a>Serija</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serija)
+        </dd>
+
+        <dt>
+            <a>Serijos numeris</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numeris)
+        </dd>
+
+        <dt>
+            <a>Data</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.data)
+        </dd>
+
+        <dt>
+            <a>Teikėjas</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.teikejas)
+        </dd>
+
+        <dt>
+            <a>Pirkėjas</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pirkejas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fk_Klientaspaskyros_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fk_Klientaspaskyros_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fk_Uzsakymasuzsakymo_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fk_Uzsakymasuzsakymo_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fk_Darbuotojaspaskyros_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fk_Darbuotojaspaskyros_id)
+        </dd>
+
+    </dl>
+    <table class="table" id="formos">
+        <tr>
+            <th>
+                <a>Bar kodas</a>
+            </th>
+            <th>
+                <a>Pavadinimas</a>
+            </th>
+            <th>
+                <a>Kiekis</a>
+            </th>
+            <th>
+                <a>Kaina</a>
+            </th>
+        </tr>
+            @for (int i = 0; i < Model.Prekiu_sarasas.Count; i++)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.prek_list.ElementAt(i).bar_kodas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.prek_list.ElementAt(i).pavadinimas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.prek_sar_list.ElementAt(i).kiekis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.prek_sar_list.ElementAt(i).kaina)
+            </td>
+        </tr>
+            }
+        </table>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Saskaita_List")
+</p>

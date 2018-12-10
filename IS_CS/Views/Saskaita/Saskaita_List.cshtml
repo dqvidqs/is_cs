@@ -1,0 +1,54 @@
+﻿@model IEnumerable<IS_CS.Models.Saskaita>
+
+@{
+    ViewBag.Title = "Saskaita_List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sąskaitos</h2>
+
+<table class="table" id="formos">
+    <tr>
+        <th>
+            <a>Serija</a>
+        </th>
+        <th>
+            <a>Serijos numeris</a>
+        </th>
+        <th>
+            <a>Data</a>
+        </th>
+        <th>
+            <a>Teikėjas</a>
+        </th>
+        <th>
+            <a>Pirkėjas</a>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.serija)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numeris)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.teikejas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pirkejas)
+        </td>
+        <td>
+            @Html.ActionLink("Peržiūra", "Saskaita_Detail", new {  id=item.serija  })
+        </td>
+    </tr>
+}
+
+    </table>

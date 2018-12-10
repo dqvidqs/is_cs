@@ -1,12 +1,13 @@
 ﻿@model IS_CS.Models.Preke
 
 @{
-    ViewBag.Title = "preke_Detail";
+    ViewBag.Title = "preke_Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Informacijos peržiūra</h2>
+<h2>Prekės naikinimas</h2>
 
+<h3>Ar tikrai norite ištrinti šį įraša?</h3>
 <div>
     <h4>Prekė</h4>
     <hr />
@@ -60,8 +61,13 @@
         </dd>
 
     </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Taip" class="btn btn-default" /> |
+            @Html.ActionLink("Grižti", "preke_List")
+        </div>
+    }
 </div>
-<p>
-    @Html.ActionLink("Redeguoti", "preke_Edit", new {  id = Model.bar_kodas }) |
-    @Html.ActionLink("Grižti", "preke_List")
-</p>
