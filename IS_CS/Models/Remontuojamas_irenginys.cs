@@ -28,6 +28,7 @@ namespace IS_CS.Models
         public System.DateTime garantijos_pabaigos_data { get; set; }
         public System.DateTime planuojamas_darbu_pabaigos_data { get; set; }
         public int busena { get; set; }
+		public string busenaString { get; set; }
         public int fk_Klientaspaskyros_id { get; set; }
         public int fk_Saskaitaserija { get; set; }
         public int fk_Darbuotojaspaskyros_id { get; set; }

@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<IS_CS.Models.Remontuojamas_irenginys>
 @{
     ViewBag.Title = "irenginys_list";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,3 +6,56 @@
 
 <h2>irenginys_list dar dar</h2>
 
+<div>
+    <h2 id="pageTitle">Įrenginių ataskaitos:</h2>
+
+    <table style="width:100%" id="formos">
+        <tr>
+            <th>Id</th>
+            <th>
+                Įrenginio pavadinimas
+            </th>
+            <th>Įrenginio modelis</th>
+            <th>Pridavimo data</th>
+            <th>Atsiėmimo data</th>
+            <th>Būsena</th>
+            <th>Garantijos pabaigos data</th>
+            <th>Kliento id</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.irenginio_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pavadinimas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modelis)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pridavimo_data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.atsiëmimo_data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.busenaString)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.garantijos_pabaigos_data)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fk_Klientaspaskyros_id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "preke_Edit", new { id = item.irenginio_id }) |
+                @Html.ActionLink("Details", "preke_Detail", new { id = item.irenginio_id })
+            </td>
+        </tr>
+        }
+    </table>
+</div>
