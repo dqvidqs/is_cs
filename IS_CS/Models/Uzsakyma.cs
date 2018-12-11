@@ -6,7 +6,8 @@
 //     Manual changes to this file will be overwritten if the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 namespace IS_CS.Models
 {
     using System;
@@ -24,12 +25,20 @@ namespace IS_CS.Models
         public Nullable<int> ar_preke_issiusta { get; set; }
         public Nullable<System.DateTime> data_ { get; set; }
         public int mokejimo_budas { get; set; }
+        public IEnumerable<SelectListItem> mokejimai { get; set; }
+        public string mokejimas { get; set; }
+        public IEnumerable<SelectListItem> pristatymai { get; set; }
+        public string pristatymas { get; set; }
         public int fk_Pristatymo_budaipristatymo_id { get; set; }
         public Nullable<int> fk_Prekiu_krepselisprekiu_krepselio_id { get; set; }
         public Nullable<int> fk_Darbuotojaspaskyros_id { get; set; }
         public int fk_Klientaspaskyros_id { get; set; }
         public Nullable<int> fk_Grazinimo_nr { get; set; }
-    
+        public string adresas { get; set; }
+        public string bankas { get; set; }
+
+
+
         public virtual Darbuotoja Darbuotoja { get; set; }
         public virtual Grazinima Grazinima { get; set; }
         public virtual Klienta Klienta { get; set; }

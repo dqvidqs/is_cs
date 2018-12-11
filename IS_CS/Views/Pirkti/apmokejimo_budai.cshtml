@@ -1,0 +1,37 @@
+﻿@model IEnumerable<IS_CS.Models.Mokejimo_budas>
+@{
+    ViewBag.Title = "apmokejimo_budai";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pasirinktite mokėjimo būdą</h2>
+<div>
+    <form action="#" method="get" id="patvirtinti">
+
+        <fieldset>
+
+            <legend><input type="radio" name="moketi" value="@Html.DisplayFor( modelItem => Model.Skip(1).First().id_Mokejimo_budas)" checked> @Html.DisplayFor(modelItem => Model.Skip(1).First().name)</legend>
+            <p>Pasirinkus galima patvirtinti pirkimą</p>
+            <i class="material-icons"> done_outline</i>
+        </fieldset>
+        <fieldset>
+           <legend><input type="radio" name="moketi" value="@Html.DisplayFor( modelItem => Model.First().id_Mokejimo_budas)"> @Html.DisplayFor(modelItem => Model.First().name)</legend>
+            Pasirinktite banką:<br>
+            <input type="radio" name="bankas" value="b1"><i class="material-icons">description</i> <br>
+            <input type="radio" name="bankas" value="b2"><i class="material-icons">description</i><br>
+            <input type="radio" name="bankas" value="b3"><i class="material-icons">description</i><br>
+            <input type="radio" name="bankas" value="b4"><i class="material-icons">description</i><br>
+        </fieldset>
+        <fieldset>
+            <legend><input type="radio" name="moketi" value="@Html.DisplayFor( modelItem => Model.Skip(2).First().id_Mokejimo_budas)" > @Html.DisplayFor(modelItem => Model.Skip(2).First().name)</legend>
+            Pasirinktite banką:<br>
+            <input type="radio" name="bankas" value="b1"><i class="material-icons" style="font-size:80px">credit_card</i>
+            <input type="radio" name="bankas" value="b2"><i class="material-icons" style="font-size:80px">credit_card</i><br>
+            <input type="radio" name="bankas" value="b3"><i class="material-icons" style="font-size:80px">credit_card</i>
+            <input type="radio" name="bankas" value="b4"><i class="material-icons" style="font-size:80px">credit_card</i><br>
+        </fieldset>
+            
+    </form><br>
+    <button type="submit" form="patvirtinti" value="Submit">Patvirtinti</button>
+</div>
+

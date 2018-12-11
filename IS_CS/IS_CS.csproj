@@ -156,9 +156,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GrazinimasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IrenginysController.cs" />
+    <Compile Include="Controllers\PirktiController.cs" />
     <Compile Include="Controllers\PrekeController.cs" />
+    <Compile Include="Controllers\SaskaitaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -315,6 +318,16 @@
     <Content Include="Views\Irenginys\irenginys_Edit.cshtml" />
     <Content Include="Views\Saskaita\Saskaita_List.cshtml" />
     <Content Include="Views\Saskaita\Saskaita_Detail.cshtml" />
+    <Content Include="Views\Grazinimas\grazinimas_create.cshtml" />
+    <Content Include="Views\Grazinimas\grazinimo_formos.cshtml" />
+    <Content Include="Views\Grazinimas\grazinimo_patvirtinimas.cshtml" />
+    <Content Include="Views\Grazinimas\israsas.cshtml" />
+    <Content Include="Views\Grazinimas\israsas_edit.cshtml" />
+    <Content Include="Views\Grazinimas\prekiu_grazinimas.cshtml" />
+    <Content Include="Views\Pirkti\apmokejimo_budai.cshtml" />
+    <Content Include="Views\Pirkti\krepselio_perziura.cshtml" />
+    <Content Include="Views\Pirkti\pirkimo_uzsakymas.cshtml" />
+    <Content Include="Views\Pirkti\pristatymo_budai.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

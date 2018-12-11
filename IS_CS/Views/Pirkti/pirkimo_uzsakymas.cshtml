@@ -1,0 +1,70 @@
+﻿@model IS_CS.Models.Uzsakyma
+
+@{
+    ViewBag.Title = "pirkimo_uzsakymas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>pirkimo_uzsakymas</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Preke</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.uzsakymo_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.uzsakymo_id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.uzsakymo_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.mokejimo_budas, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.RadioButton("mokejimo_budas", Model.mokejimai.Skip(1).First().Text, "Pasirinkite mokėjimą") @Model.mokejimai.Skip(1).First().Text<br />
+                @Html.RadioButton("mokejimo_budas", Model.mokejimai.First().Text, "Pasirinkite mokėjimą") @Model.mokejimai.First().Text
+                @Html.Label("Įveskite banko pavadinimą") <br />
+                @Html.EditorFor(model => model.bankas, new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.fk_Pristatymo_budaipristatymo_id, "", new { @class = "text-danger" })<br />
+                @Html.RadioButton("mokejimo_budas", Model.mokejimai.Skip(2).First().Text, "Pasirinkite mokėjimą") @Model.mokejimai.Skip(2).First().Text
+                @Html.Label("Banko sąskaitos nr: ******") <br />
+                
+                 @* @Html.RadioButtonFor(m => m.fk_Pristatymo_budaipristatymo_id, Model.Pristatymo_budai.pristatymo_id)*@
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.fk_Pristatymo_budaipristatymo_id, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                
+                @Html.RadioButton("fk_Pristatymo_budaipristatymo_id", Model.pristatymai.Skip(1).First().Text, "Pasirinkite mokėjimą") @Model.pristatymai.Skip(1).First().Text<br />
+                @Html.Label("Nurodykite adresą") <br />
+                @Html.EditorFor(model => model.adresas, new { htmlAttributes = new { @class = "form-control" } }) 
+                @Html.ValidationMessageFor(model => model.adresas, "", new { @class = "text-danger" })<br />
+
+                @Html.RadioButton("fk_Pristatymo_budaipristatymo_id", Model.pristatymai.First().Text, "Pasirinkite mokėjimą") @Model.pristatymai.First().Text<br />
+                @Html.Label("Nurodykite adresą") <br />
+                @Html.EditorFor(model => model.adresas, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.adresas, "", new { @class = "text-danger" })<br />
+                @Html.Label("Nurodykite adresą") <br />
+                @Html.RadioButton("fk_Pristatymo_budaipristatymo_id", Model.pristatymai.Skip(2).First().Text, "Pasirinkite mokėjimą") @Model.pristatymai.Skip(2).First().Text<br />
+                @Html.EditorFor(model => model.adresas, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.adresas, "", new { @class = "text-danger" })<br />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Buy" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
