@@ -16,13 +16,35 @@ namespace IS_CS.Controllers
             return View();
         }
 
+
+
         public ActionResult gedimas_Create()
         {
+            Gedima gedimas = new Gedima();
 
 
-            return View();
+            var list = db.Gedimo_busena.ToList();
+            var busenos = GetBusenosList(list);
+            gedimas.busenos = busenos;
 
+            return View(gedimas);
         }
+
+        [HttpPost]
+        public ActionResult gedimas_Create(Gedima gedimas)
+        {
+            Random rnd = new Random();
+            int id = rnd.Next(15, 999999999);
+            gedimas.id_Gedimas = id;
+            if (ModelState.IsValid)
+            {
+                db.Gedimas.Add(gedimas);
+                db.SaveChanges();
+            }
+            return RedirectToAction("gedimas_List");
+        }
+
+
         public ActionResult gedimas_List()
         {
 

@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>irenginys_list dar dar</h2>
 
 <div>
     <h2 id="pageTitle">Įrenginių ataskaitos:</h2>
@@ -18,9 +17,12 @@
             <th>Įrenginio modelis</th>
             <th>Pridavimo data</th>
             <th>Atsiėmimo data</th>
+            <th>Planuojamos darbų pabaigos data</th>
             <th>Būsena</th>
             <th>Garantijos pabaigos data</th>
             <th>Kliento id</th>
+            <th>Sąskaitos serijos nr.</th>
+            <th>Atsakingo darbuotojo id</th>
             <th></th>
         </tr>
 
@@ -43,6 +45,9 @@
                 @Html.DisplayFor(modelItem => item.atsiëmimo_data)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.planuojamas_darbu_pabaigos_data)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.busenaString)
             </td>
             <td>
@@ -52,8 +57,13 @@
                 @Html.DisplayFor(modelItem => item.fk_Klientaspaskyros_id)
             </td>
             <td>
-                @Html.ActionLink("Edit", "irenginys_Edit", new { id = item.irenginio_id }) |
-                @Html.ActionLink("Details", "preke_Detail", new { id = item.irenginio_id })
+                @Html.DisplayFor(modelItem => item.fk_Saskaitaserija)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fk_Darbuotojaspaskyros_id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "irenginys_Edit", new { id = item.irenginio_id })
             </td>
         </tr>
         }
