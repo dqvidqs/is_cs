@@ -1,0 +1,105 @@
+﻿@model IS_CS.Models.Remontuojamas_irenginys
+@{
+    ViewBag.Title = "irenginys_Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Naujo įrenginio registracija</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Įrenginys</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <a>Įrenginio pavadinimas</a>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.pavadinimas, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pavadinimas, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a>Įrenginio modelis</a>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.modelis, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.modelis, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a>Pridavimo data</a>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.pridavimo_data, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.pridavimo_data, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a>Atsiėmimo data</a>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.atsiëmimo_data, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.atsiëmimo_data, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a>Planuojamos darbų pabaigos data</a>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.planuojamas_darbu_pabaigos_data, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.planuojamas_darbu_pabaigos_data, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a>Įrenginio būsena</a>
+            <div class="col-md-10">
+                @Html.DropDownList("Busena", Model.busenos, "Pasirinkite tipą")
+                @Html.ValidationMessageFor(model => model.busena, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a>Garantijos pabaigos data</a>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.garantijos_pabaigos_data, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.garantijos_pabaigos_data, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a>Kliento id</a>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fk_Klientaspaskyros_id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.fk_Klientaspaskyros_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a>Sąskaitos serijos nr.</a>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fk_Saskaitaserija, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.fk_Saskaitaserija, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <a>Atsakingo darbuotojo id</a>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.fk_Darbuotojaspaskyros_id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.fk_Darbuotojaspaskyros_id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Sukurti" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
