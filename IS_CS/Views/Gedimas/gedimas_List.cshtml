@@ -1,0 +1,49 @@
+﻿@model IEnumerable<IS_CS.Models.Gedima>
+@{
+    ViewBag.Title = "gedimas_List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h2 id="pageTitle">Įrenginių ataskaitos:</h2>
+
+    <table style="width:100%" id="formos">
+        <tr>
+    
+            <th>
+                Gedimo tipas
+            </th>
+            <th>Pataisymo data</th>
+            <th>Būsena</th>
+            <th>id</th>
+            <th>Remontuojamo įrenginio id</th>
+            
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tipas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pataisymo_data)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.busenaString)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id_Gedimas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fk_Remontuojamas_irenginysirenginio_id)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "gedimas_Edit", new { id = item.id_Gedimas })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+

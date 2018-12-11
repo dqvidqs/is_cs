@@ -11,15 +11,19 @@ namespace IS_CS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Mvc;
+
     public partial class Gedima
     {
         public string tipas { get; set; }
         public System.DateTime pataisymo_data { get; set; }
         public int busena { get; set; }
         public int id_Gedimas { get; set; }
+        public string busenaString  { get; set; }
         public int fk_Remontuojamas_irenginysirenginio_id { get; set; }
-    
+
+        public IEnumerable<SelectListItem> busenos { get; set; }
+
         public virtual Gedimo_busena Gedimo_busena { get; set; }
         public virtual Remontuojamas_irenginys Remontuojamas_irenginys { get; set; }
     }

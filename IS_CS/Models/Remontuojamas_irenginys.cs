@@ -11,7 +11,8 @@ namespace IS_CS.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Mvc;
+
     public partial class Remontuojamas_irenginys
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -32,7 +33,9 @@ namespace IS_CS.Models
         public int fk_Klientaspaskyros_id { get; set; }
         public int fk_Saskaitaserija { get; set; }
         public int fk_Darbuotojaspaskyros_id { get; set; }
-    
+
+        public IEnumerable<SelectListItem> busenos { get; set; }
+
         public virtual Darbuotoja Darbuotoja { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Gedima> Gedimas { get; set; }
