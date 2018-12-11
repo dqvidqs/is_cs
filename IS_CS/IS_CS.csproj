@@ -295,7 +295,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Scripts\" />
-    <Folder Include="Views\Gedimas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -333,6 +332,10 @@
     <Content Include="Views\Pirkti\krepselio_perziura.cshtml" />
     <Content Include="Views\Pirkti\pirkimo_uzsakymas.cshtml" />
     <Content Include="Views\Pirkti\pristatymo_budai.cshtml" />
+    <Content Include="Views\Irenginys\irenginys_Create.cshtml" />
+    <Content Include="Views\Gedimas\gedimas_Create.cshtml" />
+    <Content Include="Views\Gedimas\gedimas_Edit.cshtml" />
+    <Content Include="Views\Gedimas\gedimas_List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
