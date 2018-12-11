@@ -108,8 +108,13 @@ namespace IS_CS.Controllers
         public ActionResult preke_Delete(int id, string confirmButton)
         {
             var preke = db.Prekes.Find(id);
-            db.Prekes.Remove(preke);
-            db.SaveChanges();
+            var prek_sar = db.Prekiu_sarasas.Where(i => i.fk_Prekebar_kodas == id);
+            var a = prek_sar.Count();
+            if (a == 0)
+            {
+                db.Prekes.Remove(preke);
+                db.SaveChanges();
+            }
             return RedirectToAction("preke_List");
         }
         [HttpPost]
