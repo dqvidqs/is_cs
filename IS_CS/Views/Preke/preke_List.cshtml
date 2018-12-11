@@ -4,7 +4,61 @@
     ViewBag.Title = "Prekių sąrašas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@Styles.Render("~/Content/a-controls.css")
+<div>
+    <p>
+        <a>Jei vertė tuščia ar 0, nefiltruoja.</a>
+    </p>
+    @using (Html.BeginForm())
+    {
+        <table class="table">
+            <tr>
+                <th><label>Bar kodas pradžia</label></th>
+
+                <th><label>Bar kodas pabaiga</label></th>
+
+                <th><label>Modelisa</label></th>
+
+                <th><label>Pavadinimas</label></th>
+
+                <th><label>Kaina pradžia</label></th>
+
+                <th><label>Kaina pabaiga</label></th>
+
+                <th><label>Tipai</label></th>
+            </tr>
+            <tr>
+                <td>
+                    <input name="bar0" type="number" placeholder="Bar kodas pradžia" min="0" value="0" required>
+                </td>
+                <td>
+                    <input name="bar1" type="number" placeholder="Bar kodas pabaiga" max="2147483647" value="0" required>
+                </td>
+                <td>
+                    <input name="model" type="text" placeholder="Modelis">
+                </td>
+                <td>
+                    <input name="pavad" type="text" placeholder="Pavadinimas">
+                </td>
+                <td>
+                    <input name="price0" type="number" placeholder="Kaina pradžia" min="0" value="0" required>
+                </td>
+                <td>
+                    <input name="price1" type="number" placeholder="Kaina pabaiga" max="2147483647" value="0" required>
+                </td>
+                <td>
+                    <input type="checkbox" name="kt1" value="true" checked> KG<br>
+                    <input type="checkbox" name="kt2" value="true" checked> VNT<br>
+                    <input type="checkbox" name="kt3" value="true" checked> PAK<br>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="7" >
+                    <input name="Filering" type="submit" value="Rasti">
+                </td>
+            </tr>
+        </table>
+    }
+</div>
 <h2>Prekių sąrašas</h2>
 
 <p>
@@ -27,9 +81,9 @@
         <th>
             <a>Kiekio tipas</a>
         </th>
-        <th>
+        <!--<th>
             <a>Atsakingas darbuotojas</a>
-        </th>
+        </th>-->
         <th></th>
     </tr>
 
@@ -51,11 +105,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.tipas)
             </td>
+            <!--<td>
+                        @Html.DisplayFor(modelItem => item.fk_Darbuotojaspaskyros_id)
+                    </td>-->
             <td>
-                @Html.DisplayFor(modelItem => item.fk_Darbuotojaspaskyros_id)
-            </td>
-            <td>
-                @Html.ActionLink("Redaguoti", "preke_Edit", new { id = item.bar_kodas }) |
+                @Html.ActionLink("Redeguoti", "preke_Edit", new { id = item.bar_kodas }) |
                 @Html.ActionLink("Peržiūra", "preke_Detail", new { id = item.bar_kodas }) |
                 @Html.ActionLink("Naikinti", "preke_Delete", new { id = item.bar_kodas })
             </td>
